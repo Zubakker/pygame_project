@@ -1,0 +1,1 @@
+WIDHT, HEIGHT = 800, 450
