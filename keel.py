@@ -11,5 +11,8 @@ class Keel:
     def shoot(self, coords, whiteball):
         whiteball.vx = (whiteball.coords[0] - coords[0]) / 100
         whiteball.vy = (whiteball.coords[1] - coords[1]) / 100
+        if max(abs(whiteball.vx), abs(whiteball.vy)) > 3:
+            k = 3 / max(abs(whiteball.vx), abs(whiteball.vy))
+            whiteball.vx, whiteball.vy = whiteball.vx * k, whiteball.vy * k
         whiteball.vel = [whiteball.vx, whiteball.vy]
 

@@ -53,6 +53,7 @@ class Ball:
                 self.coords = [-100, -100]
                 self.vel = [0, 0]
                 self.vx, self.vy = 0, 0
+                return self.type
 
         for ball in self.balls:
             if 400 > ((ball.coords[0] - self.coords[0]) ** 2 +
@@ -63,6 +64,7 @@ class Ball:
             k = 3 / max(abs(self.vy), abs(self.vx))
             self.vx, self.vy = k * self.vx, k * self.vy
         self.vel = [self.vx, self.vy]
+        return None
 
     def collision(self, ball, ball2):
         # ball.type += 1
@@ -90,11 +92,11 @@ class Ball:
         x4, y4 = x + ball2.vel[0], y + ball2.vel[1]
 
         if max(abs(x4), abs(y4)) > 3:
-            k = 10 / max(abs(x4), abs(y4))
+            k = 3 / max(abs(x4), abs(y4))
             x4, y4 = k * x4, k * y4
 
         if max(abs(x3), abs(y3)) > 3:
-            o = 10 / max(abs(x3), abs(y3))
+            o = 3 / max(abs(x3), abs(y3))
             x3, y3 = o * x3, o * y3
 
         ball2.vx = x4
