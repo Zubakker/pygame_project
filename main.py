@@ -5,7 +5,7 @@ import sys
 from keel import Keel
 from ball import Ball
 from board import Board
-from functions import gameover, drop
+from functions import gameover, drop, newgame, winwin
 from constants import WIDHT, HEIGHT
 
 score = 0
@@ -46,6 +46,9 @@ colors = ["БЕЛЫЙ", "КРАСНЫЙ", "ЖЕЛТЫЙ",
           "ЗЕЛЕНЫЙ", "КОРИЧНЫЙ", "СИНИЙ",
           "РОЗОВЫЙ", "ЧЕРНЫЙ"]
 
+newgame(window, my_font)
+
+nxt = -1
 while True:
     turnch = False
     fine = 0
@@ -53,6 +56,9 @@ while True:
     if reds == 10:
         turn = 2
         nxt = 2
+
+    if nxt == 8:
+        winwin(window, my_font, score)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
