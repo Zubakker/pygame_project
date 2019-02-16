@@ -22,10 +22,13 @@ class Ball:
         self.balls = []
 
     def draw(self):
-        pygame.draw.circle(self.screen, self.colors[self.type], (int(self.coords[0]), int(self.coords[1])), 10)
+        pygame.draw.circle(self.screen, self.colors[self.type],
+                           (int(self.coords[0]),
+                            int(self.coords[1])), 10)
 
     def update(self):
-        self.coords = self.coords[0] + self.vx, self.coords[1] + self.vy
+        self.coords = self.coords[0] + self.vx,\
+                      self.coords[1] + self.vy
         if WIDHT - 80 < self.coords[0] or self.coords[0] < 80:
             self.vel[0] = -self.vel[0]
             self.vx = -self.vx
@@ -41,7 +44,7 @@ class Ball:
         if abs(self.vel[0]) < 0.02:
             self.vel[0] = 0
             self.vx = 0
-        if abs(self.vel[1]) < 0.01:
+        if abs(self.vel[1]) < 0.02:
             self.vel[1] = 0
             self.vy = 0
 
@@ -63,14 +66,11 @@ class Ball:
         if max(abs(self.vx), abs(self.vy)) > 3:
             k = 3 / max(abs(self.vy), abs(self.vx))
             self.vx, self.vy = k * self.vx, k * self.vy
+
         self.vel = [self.vx, self.vy]
         return None
 
     def collision(self, ball, ball2):
-        # ball.type += 1
-        # ball.type %= 8
-        # ball2.type += 1
-        # ball2.type %= 8
         x1, y1 = ball.coords
         x2, y2 = ball2.coords
         if x1 == x2:
