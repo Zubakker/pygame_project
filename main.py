@@ -46,7 +46,6 @@ colors = ["БЕЛЫЙ", "КРАСНЫЙ", "ЖЕЛТЫЙ",
           "ЗЕЛЕНЫЙ", "КОРИЧНЫЙ", "СИНИЙ",
           "РОЗОВЫЙ", "ЧЕРНЫЙ"]
 
-winwin(window, my_font, score)
 newgame(window, my_font)
 
 nxt = -1
